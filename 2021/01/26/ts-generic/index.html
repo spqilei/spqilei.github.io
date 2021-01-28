@@ -6,15 +6,15 @@
   
   <title>TS - 泛型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1、泛型 示例123456789101112131415161718192021&#x2F;*** 在定义函数或是类时，如果遇到类型不明确就可以使用 泛型**&#x2F;function fn&lt;T&gt;(a:T):T &amp;#123;  return a;&amp;#125;&#x2F;&#x2F; 可以直接调用具有泛型的函数fn(a:10)  &#x2F;&#x2F; 不指定泛型，TS可以自动对类型进行推断fn&lt;string&gt;(a:&amp;#x27;h">
+  <meta name="description" content="1、泛型在TypeScript中，泛型是一种创建可复用代码组件的工具。这种组件不只能被一种类型使用，而是能被多种类型复用。类似于参数的作用，泛型是一种用以增强类（classes）、类型（types）和接口（interfaces）能力的非常可靠的手段。  示例123456789101112131415161718192021222324252627&#x2F;*** 在定义函数或是类时，如果遇到类型不明确就可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TS - 泛型">
 <meta property="og:url" content="http://example.com/2021/01/26/ts-generic/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、泛型 示例123456789101112131415161718192021&#x2F;*** 在定义函数或是类时，如果遇到类型不明确就可以使用 泛型**&#x2F;function fn&lt;T&gt;(a:T):T &amp;#123;  return a;&amp;#125;&#x2F;&#x2F; 可以直接调用具有泛型的函数fn(a:10)  &#x2F;&#x2F; 不指定泛型，TS可以自动对类型进行推断fn&lt;string&gt;(a:&amp;#x27;h">
+<meta property="og:description" content="1、泛型在TypeScript中，泛型是一种创建可复用代码组件的工具。这种组件不只能被一种类型使用，而是能被多种类型复用。类似于参数的作用，泛型是一种用以增强类（classes）、类型（types）和接口（interfaces）能力的非常可靠的手段。  示例123456789101112131415161718192021222324252627&#x2F;*** 在定义函数或是类时，如果遇到类型不明确就可">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-26T03:29:25.000Z">
-<meta property="article:modified_time" content="2021-01-28T09:31:55.122Z">
+<meta property="article:modified_time" content="2021-01-28T10:58:21.448Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="typeScript">
 <meta name="twitter:card" content="summary">
@@ -96,14 +96,29 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="1、泛型"><a href="#1、泛型" class="headerlink" title="1、泛型"></a>1、泛型</h2><ul>
-<li>示例<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 在定义函数或是类时，如果遇到类型不明确就可以使用 泛型</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>&lt;<span class="title">T</span>&gt;(<span class="params">a:T</span>):<span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以直接调用具有泛型的函数</span></span><br><span class="line">fn(a:<span class="number">10</span>)  <span class="comment">// 不指定泛型，TS可以自动对类型进行推断</span></span><br><span class="line">fn&lt;string&gt;(a:<span class="string">&#x27;hello&#x27;</span>) <span class="comment">// 指定泛型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 泛型类可以同时指定多个</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>&lt;<span class="title">T</span>,<span class="title">K</span>&gt;(<span class="params">a:T,b:K</span>):<span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(b);</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn2&lt;string,number&gt;(a:<span class="string">&#x27;hello&#x27;</span>,<span class="attr">b</span>:<span class="number">30</span> )</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+        <h2 id="1、泛型"><a href="#1、泛型" class="headerlink" title="1、泛型"></a>1、泛型</h2><p>在TypeScript中，泛型是一种创建可复用代码组件的工具。这种组件不只能被一种类型使用，而是能被多种类型复用。类似于参数的作用，泛型是一种用以增强类（classes）、类型（types）和接口（interfaces）能力的非常可靠的手段。</p>
+<ul>
+<li>示例<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 在定义函数或是类时，如果遇到类型不明确就可以使用 泛型</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>&lt;<span class="title">T</span>&gt;(<span class="params">a:T</span>):<span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以直接调用具有泛型的函数</span></span><br><span class="line">fn(a:<span class="number">10</span>)  <span class="comment">// 不指定泛型，TS可以自动对类型进行推断</span></span><br><span class="line">fn&lt;string&gt;(a:<span class="string">&#x27;hello&#x27;</span>) <span class="comment">// 指定泛型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以在泛型声明中，包含多个类型参数，它们只需要用逗号分隔，像这样：</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Collection</span>&lt;<span class="title">T</span>, <span class="title">K</span>&gt; </span>&#123;</span><br><span class="line">  private _things: K[];</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>._things = [];</span><br><span class="line">  &#125;</span><br><span class="line">  add(something: K): <span class="keyword">void</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>._things.push(something);</span><br><span class="line">  &#125;</span><br><span class="line">  get(index: number): T &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+使用泛型，你可以用一种编译器能理解的，并且合乎我们判断的方式，指定类、类型和接口的实例。正如在其他强类型语言中的情况一样，用这种方法，就可以在编译时发现你的类型错误，从而保证了类型安全。</li>
 </ul>
-
+<p>泛型的语法像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以在之前创建的集合中使用泛型，用尖括号括起来。　　</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Collection</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  private _things: T[];</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>._things = [];</span><br><span class="line">  &#125;</span><br><span class="line">  add(something: T): <span class="keyword">void</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>._things.push(something);</span><br><span class="line">  &#125;</span><br><span class="line">  get(index: number): T &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>._things[index];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> Stringss = <span class="keyword">new</span> Collection&lt;<span class="built_in">String</span>&gt;();</span><br><span class="line">Stringss.add(<span class="number">001</span>);</span><br><span class="line">Stringss.add(<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(Stringss.get(<span class="number">0</span>).substr(<span class="number">0</span>, <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<p>如果将带有尖括号的新逻辑复制到代码编辑器中，你会立即注意到”001”下的波浪线。这是因为，TypeScript现在可以从指定的泛型类型推断出001不是字符串。在T出现的地方，就可以使用string类型，这就实现了类型安全。本质上，这个集合的输出可以是任何类型，但你指明了它应该是string类型，所以编译器推断它就是string类型。</p>
+<h2 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h2><p>使用泛型，许多属性的类型都能被TypeScript推断出来，然而，在某些TypeScript不能做出准确推断的地方，它不会做任何假设。为了类型安全，你需要将这些要求或者约束定义为接口，并在泛型初始化中继承它们。</p>
+<p>如果你有这样一个非常简单的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printName</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arg.length);</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line">printName(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>因为TypeScript无法推断出arg参数是什么类型，不能证明所有类型都具有length属性，因此不能假设它是一个字符串（具有length属性）。所以，你会在length属性下看到一条波浪线。如前所述，你需要创建一个接口，让泛型的初始化可以继承它，以便编译器不再报警。　　</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface NameArgs &#123;</span><br><span class="line">  length: number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以在泛型声明中继承它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printName</span>&lt;<span class="title">T</span> <span class="title">extends</span> <span class="title">NameArgs</span>&gt;(<span class="params">arg: T</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arg.length);</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这告诉TypeScript，可使用任何具有length属性的类型。 定义它之后，函数调用语句也必须更改，因为它不再适用于所有类型。 所以它应看起来是这样：　　</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printName(&#123;<span class="attr">length</span>: <span class="number">1</span>, <span class="attr">value</span>: <span class="number">3</span>&#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/26/ts-generic/" data-id="ckkgns2vz0002rwkw4bfz6kc1" data-title="TS - 泛型" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/26/ts-generic/" data-id="ckkgqw7tq0007p0kw4g3jb24r" data-title="TS - 泛型" class="article-share-link">Share</a>
       
       
       
@@ -115,19 +130,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/01/26/ts-class/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/01/26/ts/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Class - 类的简介
+          TS的类型声明
         
       </div>
     </a>
   
   
-    <a href="/2021/01/26/ts-encapsulation/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/01/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">TS - 属性的封装</div>
+      <div class="article-nav-title">Hello World</div>
     </a>
   
 </nav>
@@ -183,15 +198,11 @@
           </li>
         
           <li>
-            <a href="/2021/01/26/ts-generic/">TS - 泛型</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/26/ts-encapsulation/">TS - 属性的封装</a>
-          </li>
-        
-          <li>
             <a href="/2021/01/26/ts/">TS的类型声明</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/26/ts-generic/">TS - 泛型</a>
           </li>
         
           <li>
